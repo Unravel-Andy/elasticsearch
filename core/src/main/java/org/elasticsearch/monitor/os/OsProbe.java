@@ -435,6 +435,10 @@ public class OsProbe {
         } catch (final IOException e) {
             logger.debug("error reading control group stats", e);
             return null;
+        } catch (final NullPointerException e) {
+            logger.warn("error failed to read control group stats: NullPointerException");
+            logger.debug("error failed to read control group stats", e);
+            return null;
         }
     }
 
